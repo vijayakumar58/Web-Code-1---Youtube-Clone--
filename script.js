@@ -1,51 +1,34 @@
-let division = document.createElement("div");
-division.setAttribute("class","container-lg");
-division.setAttribute("id","main");
+let navbar = document.createElement("nav");
+navbar.setAttribute("class","flex-div");
 
 let division1=document.createElement("div");
-division1.setAttribute("class","division1");
+division1.setAttribute("class","nav-left");
 
-let navbar=document.createElement("nav");
- navbar.setAttribute("class","navbar navbar-dark bg-white");
+let itag1=document.createElement("i");
+itag1.setAttribute("class","fas fa-bars");
 
-let h1tag=document.createElement("h1");
-h1tag.setAttribute("class","topichead");
-h1tag.innerHTML="WELCOME TO YOUTUBE APP"
+let itag2=document.createElement("i");
+itag2.setAttribute("class","fab fa-youtube");
 
 let division2=document.createElement("div");
-division2.setAttribute("class","youtubeentry");
+division2.setAttribute("class","nav-middle");
 
-let but1=document.createElement("button");
-but1.setAttribute("type","submit");
-but1.setAttribute("id","page1");
-but1.setAttribute("onclick","openyoutube()");
+let itag3=document.createElement("i");
+let itag4=document.createElement("i");
+let itag5=document.createElement("i");
 
-let atag=document.createElement("a");
-atag.setAttribute("class","newpage");
-atag.innerHTML='<div class="container-lg"></div>';
+let division3=document.createElement("div");
+division3.setAttribute("class","nav-right");
+let itag6=document.createElement("i");
+itag6.setAttribute("class","fas fa-plus-square");
+let itag7=document.createElement("i");
+itag7.setAttribute("class","far fa-bell");
+let imgtag1=document.createElement("img");
+imgtag1.setAttribute("src","image/vijayakumar.jpg");
+imgtag1.setAttribute("class","user-icon");
 
-let itag=document.createElement("i");
-itag.setAttribute("class","fab fa-youtube");
-itag.setAttribute("id","youfont");
-
-navbar.append(h1tag);
-division1.append(navbar);
-division.append(division1);
-let brtag=document.createElement("br");
-but1.append(itag);
-division2.append(but1);
- division.append(division2);
-document.body.append(division);
-
-
-async function youtubeData(){
-    var you=await fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails%2Cstatus&playlistId=UUK8sQmJBp8GCxrOtXWBpyEA&key=AIzaSyB0CDfq-hhQx57j8S8uH7-SKxYbPohsq-Y`);
-    var result=await you.json();
-    console.log(result);
-
-    openyoutube=()=>{
-         document.getElementById("page1")
-    }
-    
-}
-youtubeData();
+division1.append(itag1,itag2);
+division2.append(itag3,itag4,itag5);
+division3.append(itag6,itag7,imgtag1);
+navbar.append(division1,division2,division3);
+document.body.append(navbar);
