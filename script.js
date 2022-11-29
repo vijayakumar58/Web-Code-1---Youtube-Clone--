@@ -127,3 +127,14 @@ var sidebar1=document.querySelector(".sidebar");
 menuIcon.onclick=function(){
     sidebar1.classList.toggle("small-sidebar");
 }
+
+
+
+
+
+async function youtubeclone(){
+    let youtubedata=await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&forMine=true&maxResults=25&q=fun&type=video&key=AIzaSyBFwCsZgKuYUQWKUu9kGIAnNzjBTketC6w`);
+    let youtuberes= await youtubedata.json();
+    console.log(youtuberes);
+}
+youtubeclone();
