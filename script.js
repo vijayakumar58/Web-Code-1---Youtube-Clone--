@@ -133,8 +133,10 @@ menuIcon.onclick=function(){
 
 
 async function youtubeclone(){
-    let youtubedata=await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&forMine=true&maxResults=25&q=fun&type=video&key=AIzaSyBFwCsZgKuYUQWKUu9kGIAnNzjBTketC6w`);
+    let youtubedata=await fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails%2Cstatus&playlistId=UUK8sQmJBp8GCxrOtXWBpyEA&key=AIzaSyCEx05ze6PGGH_9Hhdevz0WL_f5uq7v5UQ');
     let youtuberes= await youtubedata.json();
-    console.log(youtuberes);
+    console.log(youtuberes.items);
+
 }
 youtubeclone();
+
