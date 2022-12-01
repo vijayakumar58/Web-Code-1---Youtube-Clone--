@@ -135,7 +135,7 @@ menuIcon.onclick=function(){
 async function youtubeclone(){
     let youtubedata=await fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails%2Cstatus&playlistId=UUK8sQmJBp8GCxrOtXWBpyEA&key=AIzaSyCEx05ze6PGGH_9Hhdevz0WL_f5uq7v5UQ');
     let youtuberes= await youtubedata.json();
-    console.log(youtuberes.items);
+    console.log(youtuberes);
 
 }
 youtubeclone();
