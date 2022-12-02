@@ -101,9 +101,17 @@ nav .nav-right{
 }
 .container-lg{
     padding-left: 200px;
+    margin: 20px;
+    
 }
-.card-img{
-    border: 2px splid black;
-    height: 250px;
-    width: 300px;
+.row{
+    margin: 20px;
+}
+.col-md-8{
+}
+#card-img{
+    border: 2px solid black;
+    margin-right: 10px;
+    height: 300px;
+    width: 500px;
 }

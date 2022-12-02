@@ -82,6 +82,7 @@ ptag6.innerHTML="History";
 let atag6=document.createElement("a");
 let itag12=document.createElement("i");
 itag12.setAttribute("class","fas fa-stream");
+itag12.setAttribute("id","playlistid");
 let ptag7=document.createElement("p");
 ptag7.innerHTML="Playlist";
 let atag7=document.createElement("a");
@@ -112,11 +113,6 @@ let division4b=document.createElement("div");
 division4b.setAttribute("class","subscribed-list");
 let h5tag=document.createElement("h5");
 h5tag.innerHTML="SUBSCRIBED";
-// let atag9=document.createElement("a");
-// let itag15=document.createElement("i");
-// itag15.setAttribute("class","fas fa-chevron-down");
-// let ptag10=document.createElement("p");
-// ptag10.innerHTML="Show More";
 
 division4b.append(h5tag);
 division4.append(division4b);
@@ -136,22 +132,19 @@ async function youtubeclone(){
     let youtubedata=await fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails%2Cstatus&playlistId=UUK8sQmJBp8GCxrOtXWBpyEA&key=AIzaSyCEx05ze6PGGH_9Hhdevz0WL_f5uq7v5UQ');
     let youtubers= await youtubedata.json();
     console.log(youtubers.items);
-    // console.log(youtubers.items.snippet.thumbnails.high.url);
-    // console.log(youtubers.items.snippet.thumbnails.title);
-    // console.log(youtubers.items.snippet.thumbnails.videoOwnerChannelTitle);
     let items=youtubers.items;
      items.map((ele)=>{
         var channelPhoto=ele.snippet.thumbnails.high.url;
         console.log(channelPhoto);
+        var playlistchannelid=ele.snippet.playlistId;
+        console.log(playlistchannelid);
         var videoTitle=ele.snippet.title;
         console.log(videoTitle);
         var videoOwner=ele.snippet.videoOwnerChannelTitle;
         console.log(videoOwner);
         division5.innerHTML+=`<div class="row">
-                            <div class="card mb-3">
-                            <div class="row no-gutters">
-                            <div class="col-md-8><img src="${channelPhoto}" class="card-img"></div>
-                            <div class="col-md-4>
+                            <div class="col-sm-8><img src="${channelPhoto}" id="card-img" alt="video"></div>
+                            <div class="col-sm-4>
                             <div class="card-body">
                             <p>${videoTitle}</p>
                             <p>${videoOwner}</p>
@@ -161,10 +154,14 @@ async function youtubeclone(){
                             <button type="button"><i class="fas fa-share"></i>share</button>
                             </div>
                             </div>
-                            </div>
-                            </div>
                            </div>`
-     })
+
+         var playlist=document.querySelector("#playlistid");
+         playlist.onclick = function(){
+         itag12.innerHTML+=`<div><p>${playlistchannelid}</p></div>`
+         }                   
+     });
+     
 }
 youtubeclone();
 
