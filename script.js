@@ -128,15 +128,43 @@ menuIcon.onclick=function(){
     sidebar1.classList.toggle("small-sidebar");
 }
 
-
-
-
+let division5=document.createElement("div");
+   division5.setAttribute("class","container-lg");
+division.append(division5);   
 
 async function youtubeclone(){
     let youtubedata=await fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails%2Cstatus&playlistId=UUK8sQmJBp8GCxrOtXWBpyEA&key=AIzaSyCEx05ze6PGGH_9Hhdevz0WL_f5uq7v5UQ');
-    let youtuberes= await youtubedata.json();
-    console.log(youtuberes);
-
+    let youtubers= await youtubedata.json();
+    console.log(youtubers.items);
+    // console.log(youtubers.items.snippet.thumbnails.high.url);
+    // console.log(youtubers.items.snippet.thumbnails.title);
+    // console.log(youtubers.items.snippet.thumbnails.videoOwnerChannelTitle);
+    let items=youtubers.items;
+     items.map((ele)=>{
+        var channelPhoto=ele.snippet.thumbnails.high.url;
+        console.log(channelPhoto);
+        var videoTitle=ele.snippet.title;
+        console.log(videoTitle);
+        var videoOwner=ele.snippet.videoOwnerChannelTitle;
+        console.log(videoOwner);
+        division5.innerHTML+=`<div class="row">
+                            <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                            <div class="col-md-8><img src="${channelPhoto}" class="card-img"></div>
+                            <div class="col-md-4>
+                            <div class="card-body">
+                            <p>${videoTitle}</p>
+                            <p>${videoOwner}</p>
+                            <button type="button">join</button>
+                            <button type="button">Subscribe</button>
+                            <button type="button"><i class="fas fa-thumbs-up"></i><i class="fas fa-thumbs-down"></i></button>
+                            <button type="button"><i class="fas fa-share"></i>share</button>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                           </div>`
+     })
 }
 youtubeclone();
 
