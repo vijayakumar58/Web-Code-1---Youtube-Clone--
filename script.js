@@ -143,8 +143,8 @@ async function youtubeclone(){
         var videoOwner=ele.snippet.videoOwnerChannelTitle;
         console.log(videoOwner);
         division5.innerHTML+=`<div class="row">
-                            <div class="col-sm-8><img src="${channelPhoto}" id="card-img" alt="video"></div>
-                            <div class="col-sm-4>
+                            <div class="col-sm-8"><img src=${ele.snippet.thumbnails.high.url} id="card-img" alt="video"></div>
+                            <div class="col-sm-4">
                             <div class="card-body">
                             <p>${videoTitle}</p>
                             <p>${videoOwner}</p>
